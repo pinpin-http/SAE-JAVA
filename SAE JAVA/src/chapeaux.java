@@ -27,26 +27,26 @@ public class chapeaux extends Forme {
         points.add(s1);
         points.add(s2);
 
-        System.out.println("segment added");
+        System.out.println("segment chapeau added");
         return points;
     }
 
     @Override
     public void deplacer(int deplacementX, int deplacementY) {
-        int nouvelleAbscisseP1 = p1.getAbscisse() + deplacementX;
-        int nouvelleOrdonneeP1 = p1.getOrdonnee() + deplacementY;
-        p1.setAbscisse(nouvelleAbscisseP1);
-        p1.setOrdonnee(nouvelleOrdonneeP1);
+        int nouvelleAbscisseP1 = ChapeauPoint1.getAbscisse() + deplacementX;
+        int nouvelleOrdonneeP1 = ChapeauPoint1.getOrdonnee() + deplacementY;
+        ChapeauPoint1.setAbscisse(nouvelleAbscisseP1);
+        ChapeauPoint1.setOrdonnee(nouvelleOrdonneeP1);
 
-        int nouvelleAbscisseP2 = p2.getAbscisse() + deplacementX;
-        int nouvelleOrdonneeP2 = p2.getOrdonnee() + deplacementY;
-        p2.setAbscisse(nouvelleAbscisseP2);
-        p2.setOrdonnee(nouvelleOrdonneeP2);
+        int nouvelleAbscisseP2 = ChapeauPoint2.getAbscisse() + deplacementX;
+        int nouvelleOrdonneeP2 = ChapeauPoint2.getOrdonnee() + deplacementY;
+        ChapeauPoint2.setAbscisse(nouvelleAbscisseP2);
+        ChapeauPoint2.setOrdonnee(nouvelleOrdonneeP2);
 
-        int nouvelleAbscisseP3 = p3.getAbscisse() + deplacementX;
-        int nouvelleOrdonneeP3 = p3.getOrdonnee() + deplacementY;
-        p3.setAbscisse(nouvelleAbscisseP3);
-        p3.setOrdonnee(nouvelleOrdonneeP3);
+        int nouvelleAbscisseP3 = ChapeauPoint3.getAbscisse() + deplacementX;
+        int nouvelleOrdonneeP3 = ChapeauPoint3.getOrdonnee() + deplacementY;
+        ChapeauPoint3.setAbscisse(nouvelleAbscisseP3);
+        ChapeauPoint3.setOrdonnee(nouvelleOrdonneeP3);
 
 
     }
