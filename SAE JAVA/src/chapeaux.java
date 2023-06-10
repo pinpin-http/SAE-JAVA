@@ -10,24 +10,42 @@ public class chapeaux extends Forme {
     private PointPlan ChapeauPoint1;
     private PointPlan ChapeauPoint2;
     private PointPlan ChapeauPoint3;
+    private String Nom;
 
-    public chapeaux(PointPlan p1,PointPlan p2,PointPlan p3){
+    public chapeaux(String unNom,PointPlan p1,PointPlan p2,PointPlan p3){
+        super(unNom);
         this.ChapeauPoint1 = p1;
         this.ChapeauPoint2 = p2;
         this.ChapeauPoint3 = p3;
+
     }
+
+    //getter
+    public PointPlan getChapeauPoint1(){
+        return this.ChapeauPoint1;
+    }
+    public PointPlan getChapeauPoint2() {
+        return ChapeauPoint2;
+    }
+    public PointPlan getChapeauPoint3() {
+        return ChapeauPoint3;
+    }
+    public String getNom(){
+        return this.Nom;
+    }
+
 
     @Override
     public ArrayList<Segment> dessiner() {
 
         Segment s1 = new Segment(this.ChapeauPoint1, this.ChapeauPoint2);
-        Segment s2 = new Segment(this.ChapeauPoint1, this.ChapeauPoint3);
+        Segment s2 = new Segment(this.ChapeauPoint2, this.ChapeauPoint3);
         ArrayList<Segment> points = new ArrayList<Segment>();
 
         points.add(s1);
         points.add(s2);
 
-        System.out.println("segment chapeau added");
+        System.out.println("segments chapeau ajoutées");
         return points;
     }
 

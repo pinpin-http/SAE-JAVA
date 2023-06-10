@@ -8,13 +8,13 @@ public class triangles extends Forme {
     private  PointPlan TrianglePoint1;
     private  PointPlan TrianglePoint2;
     private  PointPlan TrianglePoint3;
+    private String Nom;
 
-    public triangles(PointPlan p1,PointPlan p2,PointPlan p3){
+    public triangles(String unNom,PointPlan p1,PointPlan p2,PointPlan p3){
         this.TrianglePoint1 = p1;
         this.TrianglePoint2 = p2;
         this.TrianglePoint3 = p3;
-
-        System.out.println("triangle fait"+TrianglePoint1);
+        this.Nom=unNom;
     }
 
 
@@ -28,7 +28,7 @@ public class triangles extends Forme {
         points.add(s1);
         points.add(s2);
         points.add(s3);
-        System.out.println("segment added");
+        System.out.println("segments triangle ajoutées");
         return points;
 
     }

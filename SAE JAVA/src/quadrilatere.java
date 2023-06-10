@@ -8,12 +8,27 @@ import java.util.ArrayList;
 public class quadrilatere extends Forme {
         private PointPlan pointSuperieurGauche;
         private PointPlan pointInferieurDroit;
+        private PointPlan pointPlanSuperieurDroit;
+        private String Nom;
 
-        public quadrilatere(PointPlan pointSuperieurGauche, PointPlan pointInferieurDroit) {
+        public quadrilatere(String unNom,PointPlan pointSuperieurGauche, PointPlan pointInferieurDroit) {
             this.pointSuperieurGauche = pointSuperieurGauche;
             this.pointInferieurDroit = pointInferieurDroit;
+            this.Nom = unNom;
+
     }
 
+
+
+    public String getNom() {
+        return Nom;
+    }
+    public PointPlan getPointSuperieurGauche(){
+            return pointSuperieurGauche;
+    }
+    public PointPlan getPointInferieurDroit(){
+            return pointInferieurDroit;
+    }
 
 
     @Override
@@ -35,6 +50,7 @@ public class quadrilatere extends Forme {
         segments.add(s2);
         segments.add(s3);
         segments.add(s4);
+        System.out.println("segments quadrilatere ajoutées");
 
         return segments;
 
