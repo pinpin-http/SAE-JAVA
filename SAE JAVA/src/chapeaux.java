@@ -20,8 +20,9 @@ public class chapeaux extends Forme {
 
     }
 
-    //getter
+    //getters
     public PointPlan getChapeauPoint1(){
+
         return this.ChapeauPoint1;
     }
     public PointPlan getChapeauPoint2() {
@@ -31,10 +32,39 @@ public class chapeaux extends Forme {
         return ChapeauPoint3;
     }
     public String getNom(){
+
         return this.Nom;
     }
+    @Override
+    public String getNomForme() {
+        return super.getNomForme();
+    }
+    //seters
 
 
+    @Override
+    public void setNomForme(String nom) {
+        super.setNomForme(nom);
+    }
+    
+
+    public void setChapeauPoint1(PointPlan chapeauPoint1) {
+        ChapeauPoint1 = chapeauPoint1;
+    }
+
+    public void setChapeauPoint2(PointPlan chapeauPoint2) {
+        ChapeauPoint2 = chapeauPoint2;
+    }
+
+    public void setChapeauPoint3(PointPlan chapeauPoint3) {
+        ChapeauPoint3 = chapeauPoint3;
+    }
+
+    public void setNom(String nom) {
+        Nom = nom;
+    }
+
+    //methodes
     @Override
     public ArrayList<Segment> dessiner() {
 

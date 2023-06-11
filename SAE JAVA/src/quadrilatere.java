@@ -30,7 +30,29 @@ public class quadrilatere extends Forme {
             return pointInferieurDroit;
     }
 
+    @Override
+    public String getNomForme() {
+        return super.getNomForme();
+    }
+    //setters
+    @Override
+    public void setNomForme(String nom) {
+        super.setNomForme(nom);
+    }
+    public void setNom(String nom) {
+        Nom = nom;
+    }
+    public PointPlan getPointPlanSuperieurDroit() {
+        return pointPlanSuperieurDroit;
+    }
+    public void setPointInferieurDroit(PointPlan pointInferieurDroit) {
+        this.pointInferieurDroit = pointInferieurDroit;
+    }
+    public void setPointSuperieurGauche(PointPlan pointSuperieurGauche) {
+        this.pointSuperieurGauche = pointSuperieurGauche;
+    }
 
+    //methodes
     @Override
     public ArrayList<Segment> dessiner() {
 

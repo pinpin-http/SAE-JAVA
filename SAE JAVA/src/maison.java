@@ -46,9 +46,87 @@ public class maison extends Forme {
         this.porte = new quadrilatere(unNom,pointPorte1,pointPorte2);
     }
 
+    //getters
 
 
+    @Override
+    public String getNomForme() {
+        return super.getNomForme();
+    }
 
+    public chapeaux getToit() {
+        return toit;
+    }
+
+    public int getHauteurPorte() {
+        return hauteurPorte;
+    }
+
+    public int getHauteurToit() {
+        return hauteurToit;
+    }
+
+    public int getLargeurPorte() {
+        return largeurPorte;
+    }
+
+    public PointPlan getpInferieurDroit() {
+        return pInferieurDroit;
+    }
+
+    public quadrilatere getPorte() {
+        return porte;
+    }
+
+    public quadrilatere getRectangle() {
+        return rectangle;
+    }
+
+    public PointPlan getpSuperieurGauche() {
+        return pSuperieurGauche;
+    }
+
+    public PointPlan getpSuperieurDroit() {
+        return pSuperieurDroit;
+    }
+
+    //setters
+    public void setHauteurToit(int hauteurToit) {
+        this.hauteurToit = hauteurToit;
+    }
+
+    public void setHauteurPorte(int hauteurPorte) {
+        this.hauteurPorte = hauteurPorte;
+    }
+    public void setLargeurPorte(int largeurPorte) {
+        this.largeurPorte = largeurPorte;
+    }
+    public void setpInferieurDroit(PointPlan pInferieurDroit) {
+        this.pInferieurDroit = pInferieurDroit;
+    }
+    public void setPorte(quadrilatere porte) {
+        this.porte = porte;
+    }
+    public void setpSuperieurDroit(PointPlan pSuperieurDroit) {
+        this.pSuperieurDroit = pSuperieurDroit;
+    }
+    public void setpSuperieurGauche(PointPlan pSuperieurGauche) {
+        this.pSuperieurGauche = pSuperieurGauche;
+    }
+    public void setRectangle(quadrilatere rectangle) {
+        this.rectangle = rectangle;
+    }
+
+    public void setToit(chapeaux toit) {
+        this.toit = toit;
+    }
+
+    @Override
+    public void setNomForme(String nom) {
+        super.setNomForme(nom);
+    }
+
+    //methodes
     public ArrayList<Segment> dessiner() {
         ArrayList<Segment> points = new ArrayList<Segment>();
         for(int i = 0; i < this.rectangle.dessiner().size();i++){
@@ -66,7 +144,9 @@ public class maison extends Forme {
     }
 
     public void deplacer(int x, int y) {
-
+        rectangle.deplacer(x, y);
+        toit.deplacer(x, y);
+        porte.deplacer(x,y);
 
     }
 

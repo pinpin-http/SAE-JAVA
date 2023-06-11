@@ -17,6 +17,51 @@ public class triangles extends Forme {
         this.Nom=unNom;
     }
 
+//getter
+
+    @Override
+    public String getNomForme() {
+        return super.getNomForme();
+    }
+
+    public String getNom() {
+        return Nom;
+    }
+
+    public PointPlan getTrianglePoint1() {
+        return TrianglePoint1;
+    }
+
+    public PointPlan getTrianglePoint2() {
+        return TrianglePoint2;
+    }
+
+    public PointPlan getTrianglePoint3() {
+        return TrianglePoint3;
+    }
+//setter
+
+    @Override
+    public void setNomForme(String nom) {
+        super.setNomForme(nom);
+    }
+
+    public void setNom(String nom) {
+        Nom = nom;
+    }
+
+    public void setTrianglePoint1(PointPlan trianglePoint1) {
+        TrianglePoint1 = trianglePoint1;
+    }
+
+    public void setTrianglePoint2(PointPlan trianglePoint2) {
+        TrianglePoint2 = trianglePoint2;
+    }
+
+    public void setTrianglePoint3(PointPlan trianglePoint3) {
+        TrianglePoint3 = trianglePoint3;
+    }
+    //methodes
 
     @Override
     public ArrayList<Segment> dessiner() {
