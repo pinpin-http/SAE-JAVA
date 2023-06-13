@@ -35,7 +35,7 @@ public class maison extends Forme {
         this.largeurPorte = 0;
     }
 
-    public maison(String unNom,PointPlan pSuperieurGauche,PointPlan pInferieurDroit,int uneHauteurToit,int uneHauteurPorte,int uneLargeurPorte){
+    public maison(String unNom,PointPlan pSuperieurGauche,PointPlan pSuperieurDroit, PointPlan pInferieurDroit,int uneHauteurToit,int uneHauteurPorte,int uneLargeurPorte){
 
         //parametres de bases//
         int millieuLongueur = 0;

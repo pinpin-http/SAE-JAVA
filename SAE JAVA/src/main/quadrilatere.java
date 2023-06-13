@@ -9,7 +9,6 @@ import java.util.ArrayList;
 public class quadrilatere extends Forme {
     private PointPlan pointSuperieurGauche;
     private PointPlan pointInferieurDroit;
-    private PointPlan pointPlanSuperieurDroit;
     private String Nom;
 
 
@@ -17,7 +16,6 @@ public class quadrilatere extends Forme {
         super();
         this.pointSuperieurGauche = null;
         this.pointInferieurDroit = null;
-        this.pointPlanSuperieurDroit = null;
         this.Nom = null;
     }
 
@@ -49,9 +47,6 @@ public class quadrilatere extends Forme {
     @Override
     public String getNomForme() {
         return super.getNomForme();
-    }
-    public PointPlan getPointPlanSuperieurDroit() {
-        return pointPlanSuperieurDroit;
     }
 
     //setters
