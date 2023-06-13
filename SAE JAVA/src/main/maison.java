@@ -43,51 +43,56 @@ public class maison extends Forme {
 
 
         this.Nom = unNom;
-       this.pInferieurDroit=pInferieurDroit;
-       this.pSuperieurGauche=pSuperieurGauche;
+        this.pInferieurDroit=pInferieurDroit;
+        this.pSuperieurGauche=pSuperieurGauche;
 
-       if(pInferieurDroit!= null && pSuperieurGauche!=null){
-         this.pSuperieurDroit= new PointPlan(pInferieurDroit.getAbscisse(), pSuperieurGauche.getOrdonnee());
-       }
-       else{
-           this.pSuperieurDroit = null;
-       }
+        if(pInferieurDroit!= null && pSuperieurGauche!=null){
+            this.pSuperieurDroit= new PointPlan(pInferieurDroit.getAbscisse(), pSuperieurGauche.getOrdonnee());
+        }
+        else{
+            this.pSuperieurDroit = null;
+        }
 
-       this.hauteurToit = uneHauteurToit;
-       this.hauteurPorte = uneHauteurPorte;
-       this.largeurPorte=uneLargeurPorte;
+        this.hauteurToit = uneHauteurToit;
+        this.hauteurPorte = uneHauteurPorte;
+        this.largeurPorte=uneLargeurPorte;
 
         //setup toit
         if(pInferieurDroit!= null && pSuperieurGauche!=null) {
-             millieuLongueur = pSuperieurGauche.getAbscisse() + ((pSuperieurDroit.getAbscisse() - pSuperieurGauche.getAbscisse()) / 2);
+            millieuLongueur = pSuperieurGauche.getAbscisse() + ((pSuperieurDroit.getAbscisse() - pSuperieurGauche.getAbscisse()) / 2);
         }
         if(millieuLongueur != 0 && pSuperieurGauche!=null) {
             p2Chapeau = new PointPlan(millieuLongueur, pSuperieurGauche.getOrdonnee() - hauteurToit);
         }
 
-       //porte
+        //porte
         PointPlan pointPorte1 = new PointPlan(millieuLongueur-(largeurPorte/2),pInferieurDroit.getOrdonnee()-hauteurPorte);
         PointPlan pointPorte2 = new PointPlan(millieuLongueur+(largeurPorte/2),pInferieurDroit.getOrdonnee());
 
 
 
-       //formes
+        //formes
         this.rectangle = new quadrilatere(unNom,pSuperieurGauche,pInferieurDroit);
         this.toit = new chapeaux(unNom,pSuperieurGauche,p2Chapeau,pSuperieurDroit);
         this.porte = new quadrilatere(unNom,pointPorte1,pointPorte2);
     }
 
     public maison(maison autreMaison) {
-        this.Nom = autreMaison.getNom();
-        this.rectangle = new quadrilatere(autreMaison.getRectangle());
-        this.porte = new quadrilatere(autreMaison.getPorte());
-        this.toit = new chapeaux(autreMaison.getToit());
-        this.pSuperieurGauche = new PointPlan(autreMaison.pSuperieurGauche.getAbscisse(),autreMaison.getpSuperieurGauche().getOrdonnee());
-        this.pInferieurDroit = new PointPlan(autreMaison.getpInferieurDroit().getAbscisse(),autreMaison.getpInferieurDroit().getOrdonnee());
-        this.pSuperieurDroit = new PointPlan(autreMaison.getpSuperieurDroit().getAbscisse(),autreMaison.getpSuperieurDroit().getOrdonnee());
-        this.hauteurToit = autreMaison.getHauteurToit();
-        this.hauteurPorte = autreMaison.getHauteurPorte();
-        this.largeurPorte = autreMaison.getLargeurPorte();
+        try {
+            this.Nom = autreMaison.getNom();
+            this.rectangle = new quadrilatere(autreMaison.getRectangle());
+            this.porte = new quadrilatere(autreMaison.getPorte());
+            this.toit = new chapeaux(autreMaison.getToit());
+            this.pSuperieurGauche = new PointPlan(autreMaison.pSuperieurGauche.getAbscisse(), autreMaison.getpSuperieurGauche().getOrdonnee());
+            this.pInferieurDroit = new PointPlan(autreMaison.getpInferieurDroit().getAbscisse(), autreMaison.getpInferieurDroit().getOrdonnee());
+            this.pSuperieurDroit = new PointPlan(autreMaison.getpSuperieurDroit().getAbscisse(), autreMaison.getpSuperieurDroit().getOrdonnee());
+            this.hauteurToit = autreMaison.getHauteurToit();
+            this.hauteurPorte = autreMaison.getHauteurPorte();
+            this.largeurPorte = autreMaison.getLargeurPorte();
+        } catch (Exception e) {
+            // Gérer l'exception ici
+            System.out.println("Une erreur s'est produite lors de la création de la maison : " + e.getMessage());
+        }
     }
 
 
@@ -179,35 +184,43 @@ public class maison extends Forme {
         super.setNomForme(nom);
     }
 
-
-
-
-
-    //methodes
     public ArrayList<Segment> dessiner() {
         ArrayList<Segment> points = new ArrayList<Segment>();
-        for(int i = 0; i < this.rectangle.dessiner().size();i++){
-            points.add(this.rectangle.dessiner().get(i));
-        }
-        for(int i = 0; i < this.toit.dessiner().size();i++){
-            points.add(this.toit.dessiner().get(i));
-        }
-        for(int i = 0;i<this.porte.dessiner().size();i++){
-            points.add(this.porte.dessiner().get(i));
-        }
 
+        try {
+            for (int i = 0; i < this.rectangle.dessiner().size(); i++) {
+                points.add(this.rectangle.dessiner().get(i));
+            }
+            for (int i = 0; i < this.toit.dessiner().size(); i++) {
+                points.add(this.toit.dessiner().get(i));
+            }
+            for (int i = 0; i < this.porte.dessiner().size(); i++) {
+                points.add(this.porte.dessiner().get(i));
+            }
+        } catch (Exception e) {
+            System.out.println("Une erreur s'est produite lors du dessin de la maison : " + e.getMessage());
+        }
 
         return points;
     }
 
     public void deplacer(int x, int y) {
-        rectangle.deplacer(x, y);
-        toit.deplacer(x, y);
-        porte.deplacer(x,y);
-
+        try {
+            rectangle.deplacer(x, y);
+            toit.deplacer(x, y);
+            porte.deplacer(x, y);
+        } catch (Exception e) {
+            System.out.println("Une erreur s'est produite lors du déplacement de la maison : " + e.getMessage());
+        }
     }
 
     public String typeForme() {
-        return "GF";
+        try {
+            return "GF";
+        } catch (Exception e) {
+            System.out.println("Erreur lors de la récupération du type de forme : " + e.getMessage());
+            e.printStackTrace();
+            return null;
+        }
     }
 }

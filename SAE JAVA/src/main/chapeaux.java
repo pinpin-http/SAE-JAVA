@@ -13,56 +13,64 @@ public class chapeaux extends Forme {
     private PointPlan ChapeauPoint3;
     private String Nom;
 
-    public chapeaux(){
-        super( "");
+    public chapeaux() {
+        super("");
         this.ChapeauPoint1 = null;
         this.ChapeauPoint2 = null;
         this.ChapeauPoint3 = null;
     }
-    public chapeaux(String unNom,PointPlan p1,PointPlan p2,PointPlan p3){
-        this.Nom = unNom;
-        this.ChapeauPoint1 = p1;
-        this.ChapeauPoint2 = p2;
-        this.ChapeauPoint3 = p3;
 
+    public chapeaux(String unNom, PointPlan p1, PointPlan p2, PointPlan p3) {
+        try {
+            this.Nom = unNom;
+            this.ChapeauPoint1 = p1;
+            this.ChapeauPoint2 = p2;
+            this.ChapeauPoint3 = p3;
+        } catch (Exception e) {
+            System.out.println("Une exception s'est produite lors de la création du chapeau.");
+            e.printStackTrace();
+        }
     }
 
-    public chapeaux(chapeaux autreChapeau){
-        this.Nom = autreChapeau.getNom();
-        this.ChapeauPoint1 = new PointPlan(autreChapeau.getChapeauPoint1().getAbscisse() , autreChapeau.getChapeauPoint1().getOrdonnee());
-        this.ChapeauPoint2 = new PointPlan(autreChapeau.getChapeauPoint2().getAbscisse() , autreChapeau.getChapeauPoint2().getOrdonnee());
-        this.ChapeauPoint3 = new PointPlan(autreChapeau.getChapeauPoint3().getAbscisse() , autreChapeau.getChapeauPoint3().getOrdonnee());
+    public chapeaux(chapeaux autreChapeau) {
+        try {
+            this.Nom = autreChapeau.getNom();
+            this.ChapeauPoint1 = new PointPlan(autreChapeau.getChapeauPoint1().getAbscisse(), autreChapeau.getChapeauPoint1().getOrdonnee());
+            this.ChapeauPoint2 = new PointPlan(autreChapeau.getChapeauPoint2().getAbscisse(), autreChapeau.getChapeauPoint2().getOrdonnee());
+            this.ChapeauPoint3 = new PointPlan(autreChapeau.getChapeauPoint3().getAbscisse(), autreChapeau.getChapeauPoint3().getOrdonnee());
+        } catch (Exception e) {
+            System.out.println("Une exception s'est produite lors de la création du chapeau à partir d'un autre chapeau.");
+            e.printStackTrace();
+        }
     }
 
-    //getters
-    public PointPlan getChapeauPoint1(){
-
+    // Getters
+    public PointPlan getChapeauPoint1() {
         return this.ChapeauPoint1;
     }
-    public PointPlan getChapeauPoint2() {
 
+    public PointPlan getChapeauPoint2() {
         return this.ChapeauPoint2;
     }
-    public PointPlan getChapeauPoint3() {
 
+    public PointPlan getChapeauPoint3() {
         return this.ChapeauPoint3;
     }
-    public String getNom(){
 
+    public String getNom() {
         return this.Nom;
     }
+
     @Override
     public String getNomForme() {
         return super.getNomForme();
     }
-    //seters
 
-
+    // Setters
     @Override
     public void setNomForme(String nom) {
         super.setNomForme(nom);
     }
-    
 
     public void setChapeauPoint1(PointPlan chapeauPoint1) {
         this.ChapeauPoint1 = chapeauPoint1;
@@ -77,46 +85,59 @@ public class chapeaux extends Forme {
     }
 
     public void setNom(String nom) {
-
         this.Nom = nom;
     }
 
-    //methodes
+    // Méthodes
     @Override
     public ArrayList<Segment> dessiner() {
+        ArrayList<Segment> points = new ArrayList<>();
 
-        Segment s1 = new Segment(this.ChapeauPoint1, this.ChapeauPoint2);
-        Segment s2 = new Segment(this.ChapeauPoint2, this.ChapeauPoint3);
-        ArrayList<Segment> points = new ArrayList<Segment>();
+        try {
+            Segment s1 = new Segment(this.ChapeauPoint1, this.ChapeauPoint2);
+            Segment s2 = new Segment(this.ChapeauPoint2, this.ChapeauPoint3);
 
-        points.add(s1);
-        points.add(s2);
+            points.add(s1);
+            points.add(s2);
+        } catch (Exception e) {
+            System.out.println("Une exception s'est produite lors de la création des segments du chapeau.");
+            e.printStackTrace();
+        }
 
         return points;
     }
 
     @Override
     public void deplacer(int deplacementX, int deplacementY) {
-        int nouvelleAbscisseP1 = ChapeauPoint1.getAbscisse() + deplacementX;
-        int nouvelleOrdonneeP1 = ChapeauPoint1.getOrdonnee() + deplacementY;
-        ChapeauPoint1.setAbscisse(nouvelleAbscisseP1);
-        ChapeauPoint1.setOrdonnee(nouvelleOrdonneeP1);
+        try {
+            int nouvelleAbscisseP1 = ChapeauPoint1.getAbscisse() + deplacementX;
+            int nouvelleOrdonneeP1 = ChapeauPoint1.getOrdonnee() + deplacementY;
+            ChapeauPoint1.setAbscisse(nouvelleAbscisseP1);
+            ChapeauPoint1.setOrdonnee(nouvelleOrdonneeP1);
 
-        int nouvelleAbscisseP2 = ChapeauPoint2.getAbscisse() + deplacementX;
-        int nouvelleOrdonneeP2 = ChapeauPoint2.getOrdonnee() + deplacementY;
-        ChapeauPoint2.setAbscisse(nouvelleAbscisseP2);
-        ChapeauPoint2.setOrdonnee(nouvelleOrdonneeP2);
+            int nouvelleAbscisseP2 = ChapeauPoint2.getAbscisse() + deplacementX;
+            int nouvelleOrdonneeP2 = ChapeauPoint2.getOrdonnee() + deplacementY;
+            ChapeauPoint2.setAbscisse(nouvelleAbscisseP2);
+            ChapeauPoint2.setOrdonnee(nouvelleOrdonneeP2);
 
-        int nouvelleAbscisseP3 = ChapeauPoint3.getAbscisse() + deplacementX;
-        int nouvelleOrdonneeP3 = ChapeauPoint3.getOrdonnee() + deplacementY;
-        ChapeauPoint3.setAbscisse(nouvelleAbscisseP3);
-        ChapeauPoint3.setOrdonnee(nouvelleOrdonneeP3);
-
-
+            int nouvelleAbscisseP3 = ChapeauPoint3.getAbscisse() + deplacementX;
+            int nouvelleOrdonneeP3 = ChapeauPoint3.getOrdonnee() + deplacementY;
+            ChapeauPoint3.setAbscisse(nouvelleAbscisseP3);
+            ChapeauPoint3.setOrdonnee(nouvelleOrdonneeP3);
+        } catch (Exception e) {
+            System.out.println("Une exception s'est produite lors du déplacement du chapeau.");
+            e.printStackTrace();
+        }
     }
 
     @Override
     public String typeForme() {
-        return "C";
+        try {
+            return "C";
+        } catch (Exception e) {
+            System.out.println("Erreur lors de la récupération du type de forme : " + e.getMessage());
+            e.printStackTrace();
+            return null;
+        }
     }
 }
