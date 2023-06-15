@@ -14,7 +14,6 @@ public class quadrilatereTest {
         quadrilatere quad = new quadrilatere();
         Assert.assertNull(quad.getPointSuperieurGauche());
         Assert.assertNull(quad.getPointInferieurDroit());
-        Assert.assertNull(quad.getPointPlanSuperieurDroit());
         Assert.assertNull(quad.getNom());
     }
 

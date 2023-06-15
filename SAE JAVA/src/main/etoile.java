@@ -1,3 +1,4 @@
+package main;
 import ardoise.Forme;
 import ardoise.PointPlan;
 import ardoise.Segment;
